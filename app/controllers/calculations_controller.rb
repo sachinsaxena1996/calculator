@@ -17,15 +17,13 @@ class CalculationsController < ApplicationController
     @calculation = Calculation.new
   end
 
-  # GET /calculations/1/edit
-  def edit
-  end
-
   # POST /calculations
   # POST /calculations.json
   def create
     calculation_string = Calculation.new
     evaluation = calculation_string.evaluate_string(calculation_params[:expression])
+    calculation_string.expression = calculation_params[:expression]
+    calculation_string.evaluation = evaluation
     respond_to do |format|
       if calculation_string.save
         format.html { redirect_to calculation_string, notice: "Evaluated value of expression is #{evaluation}" }

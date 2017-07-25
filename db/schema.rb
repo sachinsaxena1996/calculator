@@ -14,9 +14,7 @@ ActiveRecord::Schema.define(version: 20170721091532) do
 
   create_table "calculations", force: :cascade do |t|
     t.string   "expression"
-    t.string   "string"
-    t.string   "evaluation"
-    t.string   "integer"
+    t.integer  "evaluation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
